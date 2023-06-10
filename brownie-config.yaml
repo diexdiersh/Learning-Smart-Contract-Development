@@ -1,0 +1,29 @@
+dependencies:
+  # <organization/repo>@<version>
+ - smartcontractkit/chainlink-brownie-contracts@1.1.1
+compiler:
+  solc:
+    remappings:
+      - '@chainlink=smartcontractkit/chainlink-brownie-contracts@1.1.1'
+dotenv: .env
+wallets:
+  from_key: ${PRIVATE_KEY}
+live:
+- name: Ethereum
+  networks:
+  - chainid: 1115511
+    explorer: https://api-sepolia.etherscan.io/
+    host: https://sepolia.infura.io/v3/55b11acbb3694ac7a5a735907fe7669a
+    id: testnet-sepolia
+    name: Sepolia (infura)
+networks:
+  testnet-sepolia:
+    eth_usd_price_feed: '0x1a81afB8146aeFfCFc5E50e8479e826E7D55b910'
+    verify: True
+  mainnet-fork-dev:
+    eth_usd_price_feed: '0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419'
+    verify: False
+  development:
+    verify: False
+  ganache-local:
+    verify: False
